@@ -4,7 +4,7 @@ import {RouterModule} from '@angular/router';
 import { NgPipesModule } from 'ngx-pipes';
 import { FormsModule } from '@angular/forms';
 import { sharedComponents } from './components';
-import { services } from 'ngx-dhis2-http-client';
+import { services } from './services';
 
 @NgModule({
   imports: [

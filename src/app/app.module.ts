@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { pages } from './pages';
 import { effects } from './store/effects';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { AppRoutingModule } from './app-routing.module';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
+    SharedModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     EffectsModule.forRoot(effects)
