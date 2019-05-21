@@ -17,7 +17,8 @@ export class LoginService {
       'Access-Control-Allow-Origin': appConfig.url
       })
     };
-    const url = appConfig.url + 'auth/login';
+    // const url = appConfig.url + 'auth/login';
+    const url = '../auth/login';
     return this.httpClient.post(url, userInfo, httpOptions);
   }
 

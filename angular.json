@@ -25,9 +25,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.css",
               "node_modules/font-awesome/css/font-awesome.css",
-              "src/styles.css",
-              "src/assets/css/main.css",
-              "src/assets/css/util.css"
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -66,7 +64,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "hrhis-login:build"
+            "browserTarget": "hrhis-login:build",
+            "proxyConfig": "proxy-config.json"
           },
           "configurations": {
             "production": {
