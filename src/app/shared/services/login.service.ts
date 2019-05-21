@@ -18,8 +18,21 @@ export class LoginService {
       })
     };
     // const url = appConfig.url + 'auth/login';
-    const url = '../auth/login';
+    const url = '../api/me';
     return this.httpClient.post(url, userInfo, httpOptions);
+  }
+
+  getUserInfo(userInfo): Observable<any> {
+    const token = btoa(userInfo.username + ':' + userInfo.password);
+    const httpOptions = {
+      headers: new HttpHeaders({
+      'Accept': '*/*' ,
+      'Access-Control-Allow-Origin': '*',
+      'authorization': 'Basic ' + token
+      })
+    };
+    const url = '../../api/me';
+    return this.httpClient.get(url, httpOptions);
   }
 
 }

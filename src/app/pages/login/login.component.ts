@@ -18,11 +18,13 @@ export class LoginComponent implements OnInit {
 
   loginAction(e) {
     const payload = {
-      name: this.username,
+      username: this.username,
       password: this.password
     }
-    this.loginService.getLoginAccess(payload).subscribe(response => {
-      console.log(JSON.stringify(response));
+    this.loginService.getUserInfo(payload).subscribe(response => {
+    }, error => {
+      this.username = '';
+      this.password = '';
     });
   }
 
