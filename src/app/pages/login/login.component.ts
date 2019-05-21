@@ -23,6 +23,8 @@ export class LoginComponent implements OnInit {
       password: this.password
     }
     this.loginService.getUserInfo(payload).subscribe(response => {
+      // Now redirect the app to default ROOT url, server will handle
+      location.href = '/';
     }, error => {
       this.failedLogin = true;
       this.username = '';
