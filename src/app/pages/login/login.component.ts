@@ -10,6 +10,7 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   rememberMe: boolean;
+  failedLogin: boolean;
 
   constructor(private loginService: LoginService) { }
 
@@ -23,9 +24,14 @@ export class LoginComponent implements OnInit {
     }
     this.loginService.getUserInfo(payload).subscribe(response => {
     }, error => {
+      this.failedLogin = true;
       this.username = '';
       this.password = '';
     });
+  }
+
+  onEditing(e) {
+    this.failedLogin = false;
   }
 
 }
