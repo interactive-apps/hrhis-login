@@ -11,14 +11,16 @@ export class LoginService {
   constructor(private httpClient: HttpClient) {}
 
   getLoginAccess(userInfo): Observable<any> {
+    const token = btoa(userInfo.username + ':' + userInfo.password);
     const httpOptions = {
       headers: new HttpHeaders({
       'Accept': '*/*' ,
-      'Access-Control-Allow-Origin': appConfig.url
+      'Access-Control-Allow-Origin': '*',
+      'Authorization': 'Basic ' + token
       })
     };
     // const url = appConfig.url + 'auth/login';
-    const url = '../api/me';
+    const url = '../../../../api/me';
     return this.httpClient.post(url, userInfo, httpOptions);
   }
 
@@ -28,10 +30,10 @@ export class LoginService {
       headers: new HttpHeaders({
       'Accept': '*/*' ,
       'Access-Control-Allow-Origin': '*',
-      'authorization': 'Basic ' + token
+      'Authorization': 'Basic ' + token
       })
     };
-    const url = '../../api/me';
+    const url = '../../../../api/me';
     return this.httpClient.get(url, httpOptions);
   }
 
