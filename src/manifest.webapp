@@ -13,7 +13,7 @@
         "url": ""
     },
     "default_locale": "en",
-    "require_auth": false
+    "require_auth": false,
     "activities": {
         "hris": {
             "href": "../../../"
